@@ -15,7 +15,7 @@ public class graphGenerator {
     public static Graph undirectedGraphGenerator2 (int numberOfVertices) {
         Graph graph = new Graph(numberOfVertices);
         Random randomGenerator = new Random();
-        //Generate Vertices
+        //Generate Vertices in Undirected Dense Graph
         int count = 0;
         for (int i = 0; i < numberOfVertices; i++) {
             for (int j = i + 1; j < numberOfVertices; j++) {
@@ -33,68 +33,42 @@ public class graphGenerator {
         return graph;
     }
 
-
-    public static Graph undirectedGraphGenerator (int numberOfVertices) {
+    public static Graph undirectedGraphGenerator(int numberOfVertices) {
         Graph graph = new Graph(numberOfVertices);
         Random randomGenerator = new Random();
-        //Generate Vertices
+        int[] degree = new int[numberOfVertices];
         for (int i = 0; i < numberOfVertices; i++) {
-            //System.out.println("Vertex:" + i);
-            //System.out.println("Degree left:" + (DegreeOfUndirectedGraph - Graph.degree(graph, i)) );
-            int degreeRemaining = DegreeOfUndirectedGraph - Graph.degree(graph, i);
-            for (int j = 0; j < degreeRemaining; j++) {
-                int count = 0;
-                boolean flag = false;
-                while (true) {
-                    count++;
-                    int vertex = -1;
-                    if (count < numberOfVertices) {
-                        vertex = randomGenerator.nextInt(numberOfVertices);
-                    } else {
-                        for (int k = 0; k < numberOfVertices; k++) {
-                            if (k != i && Graph.degree(graph, k) < DegreeOfUndirectedGraph && !(containsEdgeTo(i, k, graph.getAdj()[i]))) {
-                                vertex = k;
-                                break;
-                            }
-                        }
-                    }
-                    //System.out.println("Vertex generated:" + vertex);
-                    if (vertex == -1) {
-                        flag = true;
-                        break;
-                    }
-                    if (Graph.degree(graph, vertex) < DegreeOfUndirectedGraph) {
-                        if (!(containsEdgeTo(i, vertex, graph.getAdj()[i])) && i != vertex) {
-                            int weight = randomGenerator.nextInt(1001);
-                            graph.addEdge(i, vertex, weight);
-                            //System.out.println("Added edge from " + i + " to " + vertex + " of weight " + weight);
-                            break;
-                        }
-                    }
+            degree[i] = 0;
+        }
+        //Generate Vertices in Undirected Sparse Graph
+        int numberOfEdge = 0;
+        while (numberOfEdge < (NumberOfVertices * DegreeOfUndirectedGraph) / 2) {
+            int i = randomGenerator.nextInt(numberOfVertices);
+            int j = randomGenerator.nextInt(numberOfVertices);
+            int weight = randomGenerator.nextInt(101);
+            if (degree[i] < 6 && degree[j] < 6 && i != j) {
+                Edge edge = new Edge(i ,j, weight);
+                if (graph.adj[i].contains(edge) == false) {
+                    graph.addEdge(i, j ,weight);
+                    //System.out.println("Print edge with start, end and weight: " + edge);
+                    degree[i]++;
+                    degree[j]++;
+                    numberOfEdge++;
                 }
-                if (flag) continue;
             }
         }
+
+        //System.out.println("The number of Edges is " + numberOfEdge);
         System.out.println("INFO: Generate Undirected Sparse Graph");
         return graph;
     }
 
-    private static boolean containsEdgeTo(int i, int vertex, ArrayList<Edge> arrayList) {
-        for (Edge edge : arrayList) {
-            int w = edge.getOtherVertex(i);
-            if (vertex == w) {
-                return  true;
-            }
-        }
-        return false;
-    }
-
     public static void main(String[] args) {
-        //*
-        //undirectedGraphGenerator
+
+        //Generate Undirected Sparse Graph
         Graph graph = undirectedGraphGenerator(NumberOfVertices);
         boolean flag = true;
-        for(int i=0; i<NumberOfVertices; i++){
+        for(int i = 0; i < NumberOfVertices; i++){
             if(graph.degree(graph, i) != DegreeOfUndirectedGraph){
                 System.out.println("Vertex " + i + " does has degree " + graph.degree(graph, i));
                 flag = false;
@@ -103,10 +77,9 @@ public class graphGenerator {
         if(flag) {
             System.out.println("Valid graph");
         }
-        //*/
 
-        //undirectedGraphGenerator2
+
+        //Generate Undirected Dense Graph
         Graph graph2 = undirectedGraphGenerator2(NumberOfVertices);
-
     }
 }
