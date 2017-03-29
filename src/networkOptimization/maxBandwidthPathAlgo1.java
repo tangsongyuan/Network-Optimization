@@ -40,7 +40,9 @@ public class maxBandwidthPathAlgo1 {
         //System.out.println("TEST " + maxBandwidth + " TEST " + maxIndex);
 
         //Dijsktra algorithm to find destination
+        int count = 0;
         while (status[destination] != INTREE) {
+            count++;
             //pick a fringe v with max bw[v], that is maxIndex
             int maxBandwidth = Integer.MIN_VALUE, maxIndex = -1;
             for (int i = 0; i < graph.vertices(); i++) {
@@ -71,7 +73,7 @@ public class maxBandwidthPathAlgo1 {
                 }
             }
         }
-
+        //System.out.println("TEST count " + count);
     }
 
     public static void main(String[] args) {

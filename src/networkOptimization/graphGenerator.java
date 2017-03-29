@@ -60,7 +60,7 @@ public class graphGenerator {
 
         System.out.println("INFO: Generate Undirected Sparse Graph");
         //System.out.println("The number of Edges is " + numberOfEdge);
-        if (numberOfEdge == NumberOfVertices) {
+        if (numberOfEdge == NumberOfVertices * DegreeOfUndirectedGraph / 2) {
             System.out.println("Valid graph");
         } else System.out.println("Invalid graph");
         return graph;
@@ -70,6 +70,7 @@ public class graphGenerator {
 
         //Generate Undirected Sparse Graph
         Graph graph = sparseGraphGenerator(NumberOfVertices);
+        /*
         boolean flag = true;
         for(int i = 0; i < NumberOfVertices; i++){
             if(graph.degree(graph, i) != DegreeOfUndirectedGraph){
@@ -80,7 +81,7 @@ public class graphGenerator {
         if(flag) {
             System.out.println("Valid Graph");
         }
-
+        */
 
         //Generate Undirected Dense Graph
         Graph denseGraph = denseGraphGenerator(NumberOfVertices);
