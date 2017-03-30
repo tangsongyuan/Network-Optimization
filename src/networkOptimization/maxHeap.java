@@ -26,6 +26,10 @@ public class maxHeap {
     //    return maxHeap;
     //}
 
+    public static int getIndex(int index) {
+        return  vertices[index];
+    }
+
     public static void insert(int vertex, int bw) {
         heapNumber++;
         vertices[heapNumber] = vertex;
@@ -71,5 +75,23 @@ public class maxHeap {
         int tempValue = value[pos1];
         value[pos1] = value[pos2];
         value[pos2] = tempValue;
+    }
+
+    public static void main(String[] args) {
+        maxHeap newHeap = new maxHeap(10);
+        int max;
+        newHeap.insert(1,23);
+        max = newHeap.maximum();
+        System.out.println("TEST " + max);
+        newHeap.insert(3,12);
+        max = newHeap.maximum();
+        System.out.println("TEST " + max);
+        newHeap.insert(6,121);
+        max = newHeap.maximum();
+        System.out.println("TEST " + max);
+        newHeap.delete(1);
+        newHeap.insert(4,29);
+        max = newHeap.maximum();
+        System.out.println("TEST " + max);
     }
 }

@@ -19,7 +19,7 @@ public class graphGenerator {
         int count = 0;
         for (int i = 0; i < numberOfVertices; i++) {
             for (int j = i + 1; j < numberOfVertices; j++) {
-                int randomProbability = randomGenerator.nextInt(101);
+                int randomProbability = randomGenerator.nextInt(100) + 1;
                 //System.out.println("Generate a random number in [0,100]: " + randomProbability);
                 if (randomProbability <= Percentage) {
                     graph.addEdge(i, j, randomProbability);
@@ -45,7 +45,7 @@ public class graphGenerator {
         while (numberOfEdge < (NumberOfVertices * DegreeOfUndirectedGraph) / 2) {
             int i = randomGenerator.nextInt(numberOfVertices);
             int j = randomGenerator.nextInt(numberOfVertices);
-            int weight = randomGenerator.nextInt(101);
+            int weight = randomGenerator.nextInt(100) + 1;
             if (degree[i] < 6 && degree[j] < 6 && i != j) {
                 Edge edge = new Edge(i ,j, weight);
                 if (!graph.adj[i].contains(edge)) {
