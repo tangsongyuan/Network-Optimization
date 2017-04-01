@@ -41,6 +41,24 @@ public class maxHeapForAlgo3 {
     }
 
     public static void heapfy(int index) {
+        int l = 2 * index;
+        int r = 2 * index + 1;
+        int largest = index;
+        //System.out.println("TEST i " + maxHeap[index].getWeight() + " " + index);
+        if (l <= heapNumber && maxHeap[l].getWeight() > maxHeap[index].getWeight()) {
+            largest = l;
+            //System.out.println("TEST l " + maxHeap[l].getWeight() + " " + l);
+        }
+        if (r <= heapNumber && maxHeap[r].getWeight() > maxHeap[largest].getWeight()) {
+            largest = r;
+            //System.out.println("TEST r " + maxHeap[r].getWeight() + " " + r);
+        }
+        //System.out.println("TEST largest " + largest);
+        if (largest != index) {
+            swap(index, largest);
+            heapfy(largest);
+        }
+        /*
         if (index > 1 && maxHeap[index].getWeight() > maxHeap[index / 2].getWeight()) {
             // maxHeap[index] is a small number in the bottom, which needs to shift up
             int temp = index;
@@ -48,8 +66,7 @@ public class maxHeapForAlgo3 {
                 swap (temp, temp / 2);
                 temp = temp / 2;
             }
-        }
-        if (index < heapNumber / 2 && maxHeap[index].getWeight() <
+        } else if (index < heapNumber / 2 && maxHeap[index].getWeight() <
                 Math.max(maxHeap[index * 2].getWeight(), maxHeap[index * 2 + 1].getWeight())) {
             // maxHeap[index] is a large number in the up, which needs to shift down
             int temp = index;
@@ -63,12 +80,15 @@ public class maxHeapForAlgo3 {
                 temp = minWeightIndex;
             }
         }
+        */
     }
 
     public static void swap(int pos1, int pos2) {
+        //System.out.println("TEST pos1 pos2 " + maxHeap[pos1] + " " + maxHeap[pos2]);
         Edge tempHeap = maxHeap[pos1];
         maxHeap[pos1] = maxHeap[pos2];
         maxHeap[pos2] = tempHeap;
+        //System.out.println("TEST pos1 pos2 " + maxHeap[pos1] + " " + maxHeap[pos2]);
     }
 
     public static void main(String[] args) {
@@ -106,6 +126,14 @@ public class maxHeapForAlgo3 {
             }
         }
         System.out.println("TEST heap number" + heap.getHeapNumber());
+        //for (int i = 0; i < heap.getHeapNumber(); i++) {
+        for (int i = 0; i < 5; i++) {
+            //System.out.println("TEST max bw " + heap.maximum().getWeight());
+            delete(1);
+        }
+        //System.out.println("TEST " + heap.getHeapNumber());
+
+        /*
         int count = 0;
         int wt1 = heap.maximum().getWeight();
         delete(1);
@@ -113,12 +141,12 @@ public class maxHeapForAlgo3 {
             int wt2 = heap.maximum().getWeight();
             delete(1);
             if (wt1 < wt2) {
-                System.out.println("TEST wt " + wt1 + " " + wt2);
+                //System.out.println("TEST wt " + wt1 + " " + wt2);
                 count++;
             }
             wt1 = wt2;
         }
-        System.out.println("test " + count);
-
+        System.out.println("test count " + count);
+        */
     }
 }

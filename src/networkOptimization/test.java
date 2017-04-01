@@ -14,7 +14,7 @@ public class test {
         // five pairs of graphs
         for (int i = 0; i < NumberOfGraphs; i++) {
 
-            System.out.println("TestCase: " + (i + 1));
+            System.out.println("Test Case for Graphs: " + (i + 1));
             long startTime1 = System.currentTimeMillis();
             Graph graph1 = graphGenerator.sparseGraphGenerator(NumberOfVertices);
             long graphGeneratedTime1 = System.currentTimeMillis();
@@ -22,6 +22,8 @@ public class test {
             System.out.println(" ");
             for (int j = 0; j < NumberOfSourceToDestination; j++) {
                 // five pairs of sources and destinations
+                System.out.println("Test Case for vertices: " + (j + 1));
+
                 long startTimeNew = System.currentTimeMillis();
                 Random randomGenerator = new Random();
                 int source = randomGenerator.nextInt(NumberOfVertices);
@@ -41,9 +43,10 @@ public class test {
                 long maxBandwidthTime2 = System.currentTimeMillis();
                 System.out.println("Max-Bandwidth-Path Algorithm 2 execution time: " + (maxBandwidthTime2 - maxBandwidthTime1));
                 //System.out.println(" ");
-                //maxBandwidthPathAlgo3.maxBandwidthPath(graph1, source, destination);
-                //long maxBandwidthTime3 = System.currentTimeMillis();
-                //System.out.println("Max-Bandwidth-Path Algorithm 3 execution time: " + (maxBandwidthTime3 - maxBandwidthTime2));
+                int bw3 = maxBandwidthPathAlgo3.maxBandwidthPath(graph1, source, destination);
+                System.out.println("Max Bandwidth: " + bw2);
+                long maxBandwidthTime3 = System.currentTimeMillis();
+                System.out.println("Max-Bandwidth-Path Algorithm 3 execution time: " + (maxBandwidthTime3 - maxBandwidthTime2));
                 System.out.println(" ");
             }
 
@@ -55,6 +58,8 @@ public class test {
             System.out.println(" ");
             for (int j = 0; j < NumberOfSourceToDestination; j++) {
                 // five pairs of sources and destinations
+                System.out.println("Test Case for vertices: " + (j + 1));
+
                 long startTimeNew = System.currentTimeMillis();
                 Random randomGenerator = new Random();
                 int source = randomGenerator.nextInt(NumberOfVertices);
@@ -73,10 +78,12 @@ public class test {
                 System.out.println("Max Bandwidth: " + bw2);
                 long maxBandwidthTime2 = System.currentTimeMillis();
                 System.out.println("Max-Bandwidth-Path Algorithm 2 execution time: " + (maxBandwidthTime2 - maxBandwidthTime1));
+                //System.out.println(" ");
+                int bw3 = maxBandwidthPathAlgo3.maxBandwidthPath(graph2, source, destination);
+                System.out.println("Max Bandwidth: " + bw2);
+                long maxBandwidthTime3 = System.currentTimeMillis();
+                System.out.println("Max-Bandwidth-Path Algorithm 3 execution time: " + (maxBandwidthTime3 - maxBandwidthTime2));
                 System.out.println(" ");
-                //maxBandwidthPathAlgo3.maxBandwidthPath(graph2, source, destination);
-                //long maxBandwidthTime3 = System.currentTimeMillis();
-                //System.out.println("Max-Bandwidth-Path Algorithm 3 execution time: " + (maxBandwidthTime3 - maxBandwidthTime2));
             }
         }
     }

@@ -71,18 +71,7 @@ public class graphGenerator {
 
         //Generate Undirected Sparse Graph
         Graph graph = sparseGraphGenerator(NumberOfVertices);
-        /*
-        boolean flag = true;
-        for(int i = 0; i < NumberOfVertices; i++){
-            if(graph.degree(graph, i) != DegreeOfUndirectedGraph){
-                System.out.println("Vertex " + i + " does has degree " + graph.degree(graph, i));
-                flag = false;
-            }
-        }
-        if(flag) {
-            System.out.println("Valid Graph");
-        }
-        */
+
 
         //Generate Undirected Dense Graph
         Graph denseGraph = denseGraphGenerator(NumberOfVertices);
