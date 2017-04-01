@@ -14,7 +14,7 @@ public class maxBandwidthPathAlgo1 {
     public static int FRINGE = 1;
     public static int UNSEEN = 0;
 
-    public static void maxBandwidthPath(Graph graph, int source, int destination) {
+    public static int maxBandwidthPath(Graph graph, int source, int destination) {
         status = new int[graph.vertices()];
         dad = new int[graph.vertices()];
         bw = new int[graph.vertices()];
@@ -74,6 +74,7 @@ public class maxBandwidthPathAlgo1 {
             }
         }
         //System.out.println("TEST count " + count);
+        return bw[destination];
     }
 
     public static void main(String[] args) {

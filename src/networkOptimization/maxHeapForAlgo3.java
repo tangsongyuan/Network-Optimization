@@ -48,7 +48,8 @@ public class maxHeapForAlgo3 {
                 swap (temp, temp / 2);
                 temp = temp / 2;
             }
-        } else if (index <= heapNumber / 2 && maxHeap[index].getWeight() <
+        }
+        if (index < heapNumber / 2 && maxHeap[index].getWeight() <
                 Math.max(maxHeap[index * 2].getWeight(), maxHeap[index * 2 + 1].getWeight())) {
             // maxHeap[index] is a large number in the up, which needs to shift down
             int temp = index;
@@ -71,6 +72,7 @@ public class maxHeapForAlgo3 {
     }
 
     public static void main(String[] args) {
+        /*
         Edge edge1 = new Edge(0, 1, 1);
         Edge edge2 = new Edge(1, 2, 7);
         Edge edge3 = new Edge(2, 3, 16);
@@ -93,5 +95,30 @@ public class maxHeapForAlgo3 {
         newHeap.insert(edge5);
         max = newHeap.maximum();
         System.out.println("TEST " + max);
+        */
+
+        Graph graph = graphGenerator.sparseGraphGenerator(5000);
+        maxHeapForAlgo3 heap = new maxHeapForAlgo3(graph.edge() + 1);
+        for (int v = 0; v < graph.vertices(); v++) {
+            ArrayList<Edge> edgeList = graph.getAdj()[v];
+            for (Edge edge : edgeList) {
+                heap.insert(edge);
+            }
+        }
+        System.out.println("TEST heap number" + heap.getHeapNumber());
+        int count = 0;
+        int wt1 = heap.maximum().getWeight();
+        delete(1);
+        for (int i = 0; i < heap.getHeapNumber() - 1; i++) {
+            int wt2 = heap.maximum().getWeight();
+            delete(1);
+            if (wt1 < wt2) {
+                System.out.println("TEST wt " + wt1 + " " + wt2);
+                count++;
+            }
+            wt1 = wt2;
+        }
+        System.out.println("test " + count);
+
     }
 }

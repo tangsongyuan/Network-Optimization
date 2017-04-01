@@ -20,9 +20,10 @@ public class graphGenerator {
         for (int i = 0; i < numberOfVertices; i++) {
             for (int j = i + 1; j < numberOfVertices; j++) {
                 int randomProbability = randomGenerator.nextInt(100) + 1;
+                int randomWeight = randomGenerator.nextInt(100) + 1;
                 //System.out.println("Generate a random number in [0,100]: " + randomProbability);
                 if (randomProbability <= Percentage) {
-                    graph.addEdge(i, j, randomProbability);
+                    graph.addEdge(i, j, randomWeight);
                     count++;
                 }
             }

@@ -13,6 +13,7 @@ public class test {
     public static void main(String[] args) {
         // five pairs of graphs
         for (int i = 0; i < NumberOfGraphs; i++) {
+
             System.out.println("TestCase: " + (i + 1));
             long startTime1 = System.currentTimeMillis();
             Graph graph1 = graphGenerator.sparseGraphGenerator(NumberOfVertices);
@@ -29,12 +30,14 @@ public class test {
                     destination = randomGenerator.nextInt(NumberOfVertices);
                     if (source != destination) break;
                 }
-                System.out.println("source: " + source + " destination: " + destination);
-                maxBandwidthPathAlgo1.maxBandwidthPath(graph1, source, destination);
+                System.out.println("Source: " + source + " Destination: " + destination);
+                int bw1 = maxBandwidthPathAlgo1.maxBandwidthPath(graph1, source, destination);
+                System.out.println("Max Bandwidth: " + bw1);
                 long maxBandwidthTime1 = System.currentTimeMillis();
                 System.out.println("Max-Bandwidth-Path Algorithm 1 execution time: " + (maxBandwidthTime1 - startTimeNew));
                 //System.out.println(" ");
-                maxBandwidthPathAlgo2.maxBandwidthPath(graph1, source, destination);
+                int bw2 = maxBandwidthPathAlgo2.maxBandwidthPath(graph1, source, destination);
+                System.out.println("Max Bandwidth: " + bw2);
                 long maxBandwidthTime2 = System.currentTimeMillis();
                 System.out.println("Max-Bandwidth-Path Algorithm 2 execution time: " + (maxBandwidthTime2 - maxBandwidthTime1));
                 //System.out.println(" ");
@@ -46,7 +49,7 @@ public class test {
 
 
             long startTime2 = System.currentTimeMillis();
-            Graph graph2 = graphGenerator.sparseGraphGenerator(NumberOfVertices);
+            Graph graph2 = graphGenerator.denseGraphGenerator(NumberOfVertices);
             long graphGeneratedTime2 = System.currentTimeMillis();
             System.out.println("Dense undirected graph generation time: " + (graphGeneratedTime2 - startTime2));
             System.out.println(" ");
@@ -60,15 +63,17 @@ public class test {
                     destination = randomGenerator.nextInt(NumberOfVertices);
                     if (source != destination) break;
                 }
-                System.out.println("source: " + source + " destination: " + destination);
-                maxBandwidthPathAlgo1.maxBandwidthPath(graph2, source, destination);
+                System.out.println("Source: " + source + " Destination: " + destination);
+                int bw1 = maxBandwidthPathAlgo1.maxBandwidthPath(graph2, source, destination);
+                System.out.println("Max Bandwidth: " + bw1);
                 long maxBandwidthTime1 = System.currentTimeMillis();
                 System.out.println("Max-Bandwidth-Path Algorithm 1 execution time: " + (maxBandwidthTime1 - startTimeNew));
                 //System.out.println(" ");
-                maxBandwidthPathAlgo2.maxBandwidthPath(graph2, source, destination);
+                int bw2 = maxBandwidthPathAlgo2.maxBandwidthPath(graph2, source, destination);
+                System.out.println("Max Bandwidth: " + bw2);
                 long maxBandwidthTime2 = System.currentTimeMillis();
                 System.out.println("Max-Bandwidth-Path Algorithm 2 execution time: " + (maxBandwidthTime2 - maxBandwidthTime1));
-                //System.out.println(" ");
+                System.out.println(" ");
                 //maxBandwidthPathAlgo3.maxBandwidthPath(graph2, source, destination);
                 //long maxBandwidthTime3 = System.currentTimeMillis();
                 //System.out.println("Max-Bandwidth-Path Algorithm 3 execution time: " + (maxBandwidthTime3 - maxBandwidthTime2));
