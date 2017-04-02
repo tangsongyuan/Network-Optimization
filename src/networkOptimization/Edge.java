@@ -41,23 +41,13 @@ public class Edge {
         } else throw new IllegalArgumentException("Illegal endpoint");
     }
 
-    //.............
-    //@Override
-    public int compareTo(Edge edge) {
-        if (this.getWeight() < edge.getWeight()) return -1;
-        else if (this.getWeight() > edge.getWeight()) return 1;
-        else return  0;
-    }
-
     @Override
     public String toString() {
         return start + "-" + end + " " + weight;
     }
 
-    /*
     public static void main(String[] args) {
         Edge e = new Edge(12, 45, 3);
         System.out.println(e);
     }
-    */
 }

@@ -85,30 +85,25 @@ public class maxBandwidthPathAlgo3 {
             int V = edge.getEnd();
             int R1 = find(U);
             int R2 = find(V);
-            //System.out.println("TEST R1 " + R1 + " R2 " + R2);
             if (R1 != R2) {
                 newGraph.addEdge(edge.getStart(), edge.getEnd(), edge.getWeight());
                 union(R1, R2);
             }
             heap.delete(1);
         }
-        //for (int i = 0; i < dad.length; i ++) {
-        //    System.out.println("TEST dad " + dad[i]);
-        //}
         //System.out.println("TEST heapNumber " + heap.getHeapNumber());
-        //System.out.println("TEST newGraph " + newGraph.edge());
-        //System.out.println("TEST newGraph " + newGraph.vertices());
 
+        /*
         // Print weight on every edge in newGraph
         for (int i = 0; i < newGraph.vertices(); i++) {
             ArrayList<Edge> vEdge = newGraph.getAdj()[i];
             for (Edge edge : vEdge) {
-                //System.out.println("TEST bw " + edge.getWeight());
+                System.out.println("TEST bw " + edge.getWeight());
             }
         }
+        */
 
         // Use BFS to traverse from s to t to obtain the max-bandwidth-path
-        // newGraph!!!!
         // Initialize to start BFS
         color = new int[newGraph.vertices()];
         dadBFS = new int[newGraph.vertices()];
@@ -122,10 +117,6 @@ public class maxBandwidthPathAlgo3 {
         dad[source] = -1;
         Queue<Integer> queue = new LinkedList<>();
         queue.offer(source);
-
-    //check carefully again, in case variables' names have mistakes!!!!!!!!!!
-
-        //BFSHelper(source);
 
         while (color[destination] != BLACK && !queue.isEmpty()) {
             int u = queue.poll();
@@ -147,22 +138,22 @@ public class maxBandwidthPathAlgo3 {
             color[u] = BLACK;
         }
 
-        // add bw!!!!!!!!!!!!!
-
+        /*
         int countBlack = 0;
         int countGrey = 0;
         int countWhite = 0;
         for (int i = 0; i < color.length; i++) {
-            //if (color[i] == BLACK) countBlack++;
-            //if (color[i] == GREY) countGrey++;
-            //if (color[i] == WHITE) countWhite++;
+            if (color[i] == BLACK) countBlack++;
+            if (color[i] == GREY) countGrey++;
+            if (color[i] == WHITE) countWhite++;
         }
-        //System.out.println("TEST vertices " + newGraph.vertices());
-        //System.out.println("TEST colorBlack " + countBlack);
-        //System.out.println("TEST countGrey " + countGrey);
-        //System.out.println("TEST countWhite " + countWhite);
+        System.out.println("TEST vertices " + newGraph.vertices());
+        System.out.println("TEST colorBlack " + countBlack);
+        System.out.println("TEST countGrey " + countGrey);
+        System.out.println("TEST countWhite " + countWhite);
 
-        //System.out.println("TEST bw " + bw[destination]);
+        System.out.println("TEST bw " + bw[destination]);
+        */
         return bw[destination];
     }
 

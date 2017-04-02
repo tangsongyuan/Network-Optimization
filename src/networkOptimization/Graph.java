@@ -37,10 +37,6 @@ public class Graph {
         return edge;
     }
 
-    public void setEdge(int edge) {
-        this.edge = edge;
-    }
-
     public void addEdge(int start, int end, int weight) {
         Edge edge1 = new Edge(start, end, weight);
         adj[start].add(edge1);
@@ -59,31 +55,5 @@ public class Graph {
             degree++;
         }
         return degree;
-    }
-
-    public static int maxDegree(Graph G) {
-        int max = 0;
-        for (int v = 0; v < G.vertices(); v++) {
-            if (degree(G, v) > max) {
-                max = degree(G, v);
-            }
-        }
-        return max;
-    }
-
-    public static double averageDegree(Graph G) {
-        return 2.0 * G.edge() / G.vertices();
-    }
-
-    public static int numberOfSelfLoops(Graph G) {
-      int count = 0;
-      for (int v = 0; v < G.vertices(); v++) {
-          for (Edge edge : G.adj(v)) {
-              if (edge.getStart() == edge.getEnd()) {
-                  count++;
-              }
-          }
-      }
-      return count / 2;
     }
 }

@@ -22,10 +22,6 @@ public class maxHeap {
         return heapNumber;
     }
 
-    //public static Edge[] getMaxHeap() {
-    //    return maxHeap;
-    //}
-
     public static int getIndex(int index) {
         return  vertices[index];
     }

@@ -47,16 +47,7 @@ public class maxBandwidthPathAlgo2 {
             //pick a fringe v with max bw[v], that is maxIndex
             int maxIndex = heap.maximum();
             //System.out.println("TEST maxIndex " + maxIndex);
-            /*
-            int start = maxEdge.getStart();
-            int end = maxEdge.getEnd();
-            int maxIndex = -1;
-            if (status[start] == FRINGE) {
-                maxIndex = start;
-            } else if (status[end] == FRINGE) {
-                maxIndex = end;
-            }
-            */
+
             status[maxIndex] = INTREE;
             heap.delete(1);
             //System.out.println("TEST heapNumber " + heap.getHeapNumber());

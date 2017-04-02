@@ -58,29 +58,6 @@ public class maxHeapForAlgo3 {
             swap(index, largest);
             heapfy(largest);
         }
-        /*
-        if (index > 1 && maxHeap[index].getWeight() > maxHeap[index / 2].getWeight()) {
-            // maxHeap[index] is a small number in the bottom, which needs to shift up
-            int temp = index;
-            while (temp > 1 && maxHeap[temp].getWeight() > maxHeap[temp / 2].getWeight()) {
-                swap (temp, temp / 2);
-                temp = temp / 2;
-            }
-        } else if (index < heapNumber / 2 && maxHeap[index].getWeight() <
-                Math.max(maxHeap[index * 2].getWeight(), maxHeap[index * 2 + 1].getWeight())) {
-            // maxHeap[index] is a large number in the up, which needs to shift down
-            int temp = index;
-            while (temp <= heapNumber / 2 && maxHeap[index].getWeight() <
-                    Math.max(maxHeap[index * 2].getWeight(), maxHeap[index * 2 + 1].getWeight())) {
-                int minWeightIndex;
-                if (maxHeap[index * 2].getWeight() > maxHeap[index * 2 + 1].getWeight()) {
-                    minWeightIndex = index * 2;
-                } else minWeightIndex = index * 2 + 1;
-                swap (temp, minWeightIndex);
-                temp = minWeightIndex;
-            }
-        }
-        */
     }
 
     public static void swap(int pos1, int pos2) {
