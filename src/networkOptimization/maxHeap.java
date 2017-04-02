@@ -45,6 +45,21 @@ public class maxHeap {
     }
 
     public static void heapfy(int k) {
+        int l = 2 * k;
+        int r = 2 * k + 1;
+        int largest = k;
+        if (l <= heapNumber && value[l] > value[k]) {
+            largest = l;
+        }
+        if (r <= heapNumber && value[r] > value[largest]) {
+            largest = r;
+        }
+        if (largest != k) {
+            swap(largest, k);
+            heapfy(largest);
+        }
+        /*
+        // this part is not completely correct
         if (k > 1 && value[k] > value[k / 2]) {
             int temp = k;
             while (temp > 1 && value[temp] > value[temp / 2]) {
@@ -62,6 +77,7 @@ public class maxHeap {
                 temp = maxValueIndex;
             }
         }
+        */
     }
 
     public static void swap(int pos1, int pos2) {

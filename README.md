@@ -6,7 +6,7 @@ Dijkstra, a modified Kruskal and Breadth-first Search
 (BFS) algorithms to translate theoretical methods into
 practical programming language-Java.
 
-This project is achieved in four parts.
+This project is completed in four parts.
 
 **1. Random Graph Generation**
 ---
