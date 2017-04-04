@@ -34,17 +34,18 @@ public class test {
                 }
                 System.out.println("Source: " + source + " Destination: " + destination);
                 int bw1 = maxBandwidthPathAlgo1.maxBandwidthPath(graph1, source, destination);
-                System.out.println("Max Bandwidth: " + bw1);
+                //System.out.println("Max Bandwidth: " + bw1);
                 long maxBandwidthTime1 = System.currentTimeMillis();
                 System.out.println("Max-Bandwidth-Path Algorithm 1 execution time: " + (maxBandwidthTime1 - startTimeNew));
                 int bw2 = maxBandwidthPathAlgo2.maxBandwidthPath(graph1, source, destination);
-                System.out.println("Max Bandwidth: " + bw2);
+                //System.out.println("Max Bandwidth: " + bw2);
                 long maxBandwidthTime2 = System.currentTimeMillis();
                 System.out.println("Max-Bandwidth-Path Algorithm 2 execution time: " + (maxBandwidthTime2 - maxBandwidthTime1));
                 int bw3 = maxBandwidthPathAlgo3.maxBandwidthPath(graph1, source, destination);
-                System.out.println("Max Bandwidth: " + bw3);
+                //System.out.println("Max Bandwidth: " + bw3);
                 long maxBandwidthTime3 = System.currentTimeMillis();
                 System.out.println("Max-Bandwidth-Path Algorithm 3 execution time: " + (maxBandwidthTime3 - maxBandwidthTime2));
+                System.out.println("Max Bandwidth: " + bw1);
                 System.out.println(" ");
             }
 
@@ -68,18 +69,18 @@ public class test {
                 }
                 System.out.println("Source: " + source + " Destination: " + destination);
                 int bw1 = maxBandwidthPathAlgo1.maxBandwidthPath(graph2, source, destination);
-                System.out.println("Max Bandwidth: " + bw1);
+                //System.out.println("Max Bandwidth: " + bw1);
                 long maxBandwidthTime1 = System.currentTimeMillis();
                 System.out.println("Max-Bandwidth-Path Algorithm 1 execution time: " + (maxBandwidthTime1 - startTimeNew));
                 int bw2 = maxBandwidthPathAlgo2.maxBandwidthPath(graph2, source, destination);
-                System.out.println("Max Bandwidth: " + bw2);
+                //System.out.println("Max Bandwidth: " + bw2);
                 long maxBandwidthTime2 = System.currentTimeMillis();
                 System.out.println("Max-Bandwidth-Path Algorithm 2 execution time: " + (maxBandwidthTime2 - maxBandwidthTime1));
                 int bw3 = maxBandwidthPathAlgo3.maxBandwidthPath(graph2, source, destination);
-                System.out.println("Max Bandwidth: " + bw3);
+                //System.out.println("Max Bandwidth: " + bw3);
                 long maxBandwidthTime3 = System.currentTimeMillis();
                 System.out.println("Max-Bandwidth-Path Algorithm 3 execution time: " + (maxBandwidthTime3 - maxBandwidthTime2));
-                System.out.println("Max Bandwidth: " + bw2);
+                System.out.println("Max Bandwidth: " + bw1);
                 System.out.println(" ");
             }
         }
