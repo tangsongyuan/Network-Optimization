@@ -7,7 +7,7 @@ import java.util.Random;
  */
 public class test {
     private static int NumberOfVertices = 5000;
-    private static int NumberOfGraphs = 1;
+    private static int NumberOfGraphs = 5;
     private static int NumberOfSourceToDestination = 5;
 
     public static void main(String[] args) {
